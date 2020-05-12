@@ -27,19 +27,19 @@ Each image's label file must be locatable by simply replacing /images/*.jpg with
 ../data/labels/IMG_5201.txt  # label
 `
 An example label file with 5 persons (all class 0):
-<p align="center"> <img src="label.jpg"/> </p>
+<p align="center"> <img src="label.jpg" width="400" height="200"/> </p>
 
 **2. Create train and val .txt files**
 Here we create data/train.txt and data/val.txt which contains the path to all the training images and the validation images respectively. Each row contains a path to an image, and remember one label must also exist in a corresponding /labels folder for each image containing objects.
-<p align="center"> <img src="image2.jpg" width="200" height="200"/> </p>
+<p align="center"> <img src="image2.jpg" width="400" height="200"/> </p>
 
 **3. Create new .names file** 
 Here we list the class names in our dataset. I made the labels for my 10 objects. Classes are zero indexed, so ping pong is class 0, cookie tin is class 1, etc.
-<p align="center"> <img src="image3.jpg" width="200" height="200"/></p>
+<p align="center"> <img src="image3.jpg" width="400" height="200"/></p>
 
 **4. Create new .data file**
 This file has the class count, paths to train and validation datasets and with the path to your *.names file.
-<p align="center"> <img src="image4.jpg" width="200" height="200"/> </p>
+<p align="center"> <img src="image4.jpg" width="400" height="200"/> </p>
 
 
 **5. Update yolov3.cfg**
