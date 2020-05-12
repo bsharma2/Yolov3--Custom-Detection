@@ -7,7 +7,7 @@ The goal was to identify (using only single monocular optical camera) a wide var
 
 <p align="center"> <img src="image1.jpg" width="500" height="400"/> </p>
 
-From this tote, I had to detect 10 objects/ classes using only 90 images in my training set. This code customization works for detectio<p align="center"> <img src="image1.JPG" width="500" height="400"/> </p>n of small objects using really few training image set, though it would definitely perform better with a larger training set.
+From this tote, I had to detect 10 objects/ classes using only 90 images in my training set. This code customization works for detection of small objects using really few training image set, though it would definitely perform better with a larger training set.
 
 # Requirements
 
@@ -27,19 +27,20 @@ Each image's label file must be locatable by simply replacing /images/*.jpg with
 ../data/labels/IMG_5201.txt  # label
 `
 An example label file with 5 persons (all class 0):
-<p align="center"> <img src="label.jpg" width="500" height="400"/> </p>
+<p align="center"> <img src="label.jpg"/> </p>
 
-**2. Create train and val *.txt files.**
+**2. Create train and val .txt files**
 Here we create data/train.txt and data/val.txt which contains the path to all the training images and the validation images respectively. Each row contains a path to an image, and remember one label must also exist in a corresponding /labels folder for each image containing objects.
-<p align="center"> <img src="image2.jpg" width="500" height="400"/> </p>
+<p align="center"> <img src="image2.jpg"/> </p>
 
-**3. Create new *.names file** 
+**3. Create new .names file** 
 Here we list the class names in our dataset. I made the labels for my 10 objects. Classes are zero indexed, so ping pong is class 0, cookie tin is class 1, etc.
-<p align="center"> <img src="image3.jpg" width="500" height="400"/> </p>
+<p align="center"> <img src="image3.jpg"/></p>
 
-**4. Create new *.data file**
+**4. Create new .data file**
 This file has the class count, paths to train and validation datasets and with the path to your *.names file.
-<p align="center"> <img src="image4.jpg" width="500" height="400"/> </p>
+<p align="center"> <img src="image4.jpg"/> </p>
+
 
 **5. Update yolov3.cfg**
 By default each YOLO layer has 255 outputs: 85 values per anchor [4 box coordinates + 1 object confidence + 80 class confidences], times 3 anchors. Update the settings to filters=[5 + n] * 3 and classes=n, where n is your class count. This modification should be made in all 3 YOLO layers.
@@ -55,7 +56,7 @@ Run from utils
 `import utils; 
 utils.plot_results()` 
 to see your training losses and performance metrics vs epoch. If you don't see acceptable performance, try hyperparameter tuning and re-training. Multiple results.txt files are overlaid automatically to compare performance. After completing the training, a results.png file gets saved if you use the above training command, you can visualize your results using that.
-<p align="center"> <img src="image5.jpg" width="500" height="400"/> </p>
+<p align="center"> <img src="image5.jpg" width="700" height="300"/> </p>
 
 # Detection
 
